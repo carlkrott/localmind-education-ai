@@ -1,4 +1,4 @@
-api_key = "f2f5cd96f49d440f9d259ced68a99f5d.OxLPGgiiXIqgw9K8"
+api_key = "localmind-local"
 api_url = "http://llama-server:8080/v1"
 default_provider = "custom:http://llama-server:8080/v1"
 default_model = "gemma-4-education"
