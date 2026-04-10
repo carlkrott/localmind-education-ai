@@ -1,6 +1,6 @@
 services:
   llama-server:
-    image: ghcr.io/ggml-org/llama.cpp:server-cpu
+    image: ghcr.io/ggml-org/llama.cpp:server
     volumes:
       - ./models:/models:ro
     command: >
@@ -22,8 +22,8 @@ services:
       retries: 5
       start_period: 60s
 
-  # GPU variant: swap image to ghcr.io/ggml-org/llama.cpp:server-cuda
-  # and add: deploy: { resources: { reservations: { devices: [{ capabilities: [gpu] }] } } }
+  # GPU variant: add CUDA device reservation when GPU is available:
+  # deploy: { resources: { reservations: { devices: [{ capabilities: [gpu] }] } } }
 
   zeroclaw:
     build:
