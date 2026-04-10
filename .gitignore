@@ -9,4 +9,5 @@ configs/zeroclaw/workspace/memory/
 configs/zeroclaw/state/
 *.db
 *.log
-zeroclaw-linux-x86_64
+# zeroclaw binary is included in repo for reproducibility
+# zeroclaw-linux-x86_64
