@@ -1,0 +1,12 @@
+models/
+!models/.gitkeep
+kiwix-data/
+!kiwix-data/.gitkeep
+dataset/
+obsidian-vault/*
+!obsidian-vault/.gitkeep
+configs/zeroclaw/workspace/memory/
+configs/zeroclaw/state/
+*.db
+*.log
+zeroclaw-linux-x86_64

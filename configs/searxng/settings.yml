@@ -1,0 +1,89 @@
+use_default_settings: true
+
+general:
+  instance_name: "LocalMind Search"
+  privacypolicy_url: false
+  contact_url: false
+  enable_metrics: false
+
+search:
+  safe_search: 1
+  autocomplete: ""
+  default_lang: "en"
+  ban_time_on_fail: 5
+  max_ban_time_on_fail: 120
+  formats:
+    - html
+    - json
+
+server:
+  port: 8080
+  bind_address: "0.0.0.0"
+  secret_key: "localm ind-secret-change-in-production"
+  base_url: false
+  image_proxy: false
+  http_protocol_version: "1.1"
+  method: "POST"
+
+ui:
+  static_use_hash: true
+  default_locale: "en"
+  query_in_title: true
+  infinite_scroll: false
+  center_alignment: false
+  results_on_new_tab: false
+  simple_style: false
+
+# Education-focused engines — prioritise academic and reliable sources
+engines:
+  - name: duckduckgo
+    engine: duckduckgo
+    categories: general
+    timeout: 3.0
+    disabled: false
+
+  - name: wikipedia
+    engine: wikipedia
+    categories: general
+    timeout: 3.0
+    disabled: false
+
+  - name: bing
+    engine: bing
+    categories: general
+    timeout: 3.0
+    disabled: false
+
+  - name: arxiv
+    engine: arxiv
+    categories: science
+    timeout: 4.0
+    disabled: false
+
+  - name: google scholar
+    engine: google_scholar
+    categories: science
+    timeout: 4.0
+    disabled: false
+
+  - name: openstreetmap
+    engine: openstreetmap
+    categories: map
+    timeout: 3.0
+    disabled: false
+
+  - name: github
+    engine: github
+    categories: it
+    timeout: 3.0
+    disabled: false
+
+categories_as_tabs:
+  general:
+    - general
+  science:
+    - science
+  it:
+    - it
+  map:
+    - map

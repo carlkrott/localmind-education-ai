@@ -1,0 +1,25 @@
+FROM debian:bookworm-slim
+
+RUN apt-get update && apt-get install -y \
+    ca-certificates \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create zeroclaw user
+RUN useradd -ms /bin/bash zeroclaw
+
+# Download latest zeroclaw binary (Linux x86_64)
+# Replace with specific release URL when available
+ARG ZEROCLAW_VERSION=latest
+COPY --chown=zeroclaw:zeroclaw zeroclaw-linux-x86_64 /usr/local/bin/zeroclaw
+RUN chmod +x /usr/local/bin/zeroclaw
+
+USER zeroclaw
+WORKDIR /home/zeroclaw
+
+# Config dir will be mounted at runtime
+RUN mkdir -p /home/zeroclaw/.zeroclaw/workspace
+
+EXPOSE 42617
+
+CMD ["zeroclaw", "daemon"]
