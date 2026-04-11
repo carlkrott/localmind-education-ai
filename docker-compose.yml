@@ -32,8 +32,6 @@ services:
       - ./configs/zeroclaw:/home/zeroclaw/.zeroclaw
       - ./obsidian-vault:/vault
     depends_on:
-      llama-server:
-        condition: service_healthy
       searxng:
         condition: service_started
     restart: unless-stopped

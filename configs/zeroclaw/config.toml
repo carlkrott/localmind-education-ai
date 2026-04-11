@@ -1,6 +1,6 @@
 api_key = "localmind-local"
-api_url = "http://llama-server:8080/v1"
-default_provider = "custom:http://llama-server:8080/v1"
+api_url = "http://host.docker.internal:8080/v1"
+default_provider = "custom:http://host.docker.internal:8080/v1"
 default_model = "gemma-4-education"
 default_temperature = 0.7
 
@@ -116,7 +116,7 @@ native_headless = true
 
 [http_request]
 enabled = true
-allowed_domains = ["llama-server", "searxng", "kiwix", "*"]
+allowed_domains = ["host.docker.internal", "searxng", "kiwix", "*"]
 max_response_size = 2000000
 timeout_secs = 300
 
