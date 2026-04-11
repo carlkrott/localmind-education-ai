@@ -98,7 +98,7 @@ provider = "none"
 port = 42617
 host = "0.0.0.0"
 require_pairing = true
-allow_public_bind = false
+allow_public_bind = true
 
 [composio]
 enabled = false
