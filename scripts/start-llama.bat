@@ -17,4 +17,5 @@ echo Starting ik_llama.cpp server with Gemma 4 model...
   --n-predict 2048 ^
   --repeat-penalty 1.1 ^
   -ctk q4_0 ^
-  -ctv q4_0
+  -ctv q4_0 ^
+  --chat-template gemma
