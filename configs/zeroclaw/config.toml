@@ -40,6 +40,7 @@ kind = "native"
 [reliability]
 provider_retries = 2
 provider_backoff_ms = 500
+provider_timeout_secs = 300
 
 [scheduler]
 enabled = true
@@ -49,7 +50,7 @@ max_concurrent = 2
 [agent]
 compact_context = true
 max_tool_iterations = 20
-max_history_messages = 10
+max_history_messages = 4
 parallel_tools = false
 tool_dispatcher = "xml"
 
