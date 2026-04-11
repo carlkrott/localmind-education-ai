@@ -2,6 +2,7 @@ models/
 !models/.gitkeep
 kiwix-data/
 !kiwix-data/.gitkeep
+!kiwix-data/library.xml
 dataset/
 obsidian-vault/*
 !obsidian-vault/.gitkeep

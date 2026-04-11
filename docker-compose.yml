@@ -54,8 +54,8 @@ services:
   kiwix:
     image: ghcr.io/kiwix/kiwix-serve:latest
     volumes:
-      - ./kiwix-data:/data:ro
-    command: /data/
+      - ./kiwix-data:/data
+    command: --library /data/library.xml
     ports:
       - "9090:80"
     restart: unless-stopped
