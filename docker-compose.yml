@@ -7,11 +7,13 @@ services:
       --model /models/gemma-4-education.gguf
       --host 0.0.0.0
       --port 8080
-      --ctx-size 8192
+      --ctx-size 32768
       --threads 8
       --parallel 1
-      --n-predict 1024
+      --n-predict 2048
       --repeat-penalty 1.1
+      --cache-type-k q4_0
+      --cache-type-v q4_0
     ports:
       - "8080:8080"
     restart: unless-stopped
