@@ -48,8 +48,8 @@ max_concurrent = 2
 
 [agent]
 compact_context = true
-max_tool_iterations = 100
-max_history_messages = 80
+max_tool_iterations = 20
+max_history_messages = 10
 parallel_tools = false
 tool_dispatcher = "xml"
 
@@ -117,7 +117,7 @@ native_headless = true
 enabled = true
 allowed_domains = ["llama-server", "searxng", "kiwix", "*"]
 max_response_size = 2000000
-timeout_secs = 60
+timeout_secs = 300
 
 [multimodal]
 max_images = 4
