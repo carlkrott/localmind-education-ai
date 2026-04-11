@@ -618,7 +618,7 @@ def run_eval(host, model, runs=3, skip_tests=None, vision_enabled=False):
         avg_tps = sum(timings) / len(timings) if timings else 0.0
         results[test_key] = {"score": score, "tps": avg_tps, "notes": notes}
 
-        bar = chr(9608) * (score // 10) + chr(9617) * (10 - score // 10)
+        bar = "#" * (score // 10) + "." * (10 - score // 10)
         print("   Score: {}/100 [{}]  avg {:.1f} tok/s".format(score, bar, avg_tps))
         print("   Notes:", notes)
         if responses and responses[0]:
