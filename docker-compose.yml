@@ -1,31 +1,7 @@
 services:
-  llama-server:
-    image: ghcr.io/ggml-org/llama.cpp:server
-    volumes:
-      - ./models:/models:ro
-    command: >
-      --model /models/gemma-4-education.gguf
-      --host 0.0.0.0
-      --port 8080
-      --ctx-size 32768
-      --threads 6
-      --parallel 1
-      --n-predict 2048
-      --repeat-penalty 1.1
-      --cache-type-k q4_0
-      --cache-type-v q4_0
-    ports:
-      - "8080:8080"
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 60s
-
-  # GPU variant: add CUDA device reservation when GPU is available:
-  # deploy: { resources: { reservations: { devices: [{ capabilities: [gpu] }] } } }
+  # llama-server is now run natively via ik_llama.cpp (Windows service, port 8080)
+  # for improved CPU performance. See scripts/start-llama.bat to start manually.
+  # Docker containers reach it via host.docker.internal:8080
 
   zeroclaw:
     build:
@@ -35,13 +11,13 @@ services:
       - ./configs/zeroclaw:/home/zeroclaw/.zeroclaw
       - ./obsidian-vault:/vault
     depends_on:
-      llama-server:
-        condition: service_healthy
       searxng:
         condition: service_started
     restart: unless-stopped
     environment:
       - ZEROCLAW_CONFIG_DIR=/home/zeroclaw/.zeroclaw
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   searxng:
     image: searxng/searxng:latest
