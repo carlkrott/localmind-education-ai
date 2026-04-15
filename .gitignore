@@ -12,3 +12,4 @@ configs/zeroclaw/state/
 *.log
 # zeroclaw binary is included in repo for reproducibility
 # zeroclaw-linux-x86_64
+configs/zeroclaw/config.toml
